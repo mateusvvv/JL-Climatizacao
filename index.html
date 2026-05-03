@@ -18,30 +18,43 @@
 
     <!-- Header -->
     <nav class="bg-dark-blue text-white shadow-xl sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-black tracking-tighter italic">JL CLIMATIZAÇÃO</div>
+        <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+            <div class="text-xl md:text-2xl font-black tracking-tighter italic">JL CLIMATIZAÇÃO</div>
+            
+            <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8">
                 <a href="#inicio" class="nav-link">Início</a>
                 <a href="#servicos" class="nav-link">Serviços</a>
                 <a href="#os" class="nav-link">Ordem de Serviço</a>
             </div>
-            <div class="flex items-center gap-4">
+
+            <div class="flex items-center gap-2 md:gap-4">
                 <button id="theme-toggle" class="text-white hover:text-blue-400 transition-colors p-2" aria-label="Alternar modo escuro">
                     <i id="theme-icon" class="fas fa-moon text-lg"></i>
                 </button>
-                <a href="https://wa.me/558193833660" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp text-lg"></i> <span class="hidden sm:inline">Whatsapp</span>
+                <a href="https://wa.me/558193833660" target="_blank" rel="noopener noreferrer" class="btn-whatsapp text-sm md:text-base">
+                    <i class="fab fa-whatsapp text-lg"></i> <span class="hidden xs:inline">Whatsapp</span>
                 </a>
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Abrir menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-blue border-t border-blue-900/50 px-6 py-6 space-y-4 animate-fade-in">
+            <a href="#inicio" class="block nav-link text-lg">Início</a>
+            <a href="#servicos" class="block nav-link text-lg">Serviços</a>
+            <a href="#os" class="block nav-link text-lg">Ordem de Serviço</a>
         </div>
     </nav>
 
     <!-- Hero -->
-    <header id="inicio" class="hero-bg text-white py-24 px-6 text-center">
+    <header id="inicio" class="hero-bg text-white py-16 md:py-24 px-6 text-center">
         <div class="container mx-auto max-w-4xl">
             <span class="bg-blue-600 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-widest mb-4 inline-block">10 Anos de Experiência</span>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">Climatização Residencial e Comercial</h1>
-            <p class="text-xl md:text-2xl mb-10 opacity-90 font-light">Especialista Leandro: Instalando conforto e saúde em Belo Jardim e região com <strong>1 ano de garantia</strong>.</p>
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">Climatização Residencial e Comercial</h1>
+            <p class="text-lg md:text-2xl mb-10 opacity-90 font-light">Especialista Leandro: Instalando conforto e saúde em Belo Jardim e região com <strong>1 ano de garantia</strong>.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="#os" class="btn-hero-primary">Solicitar Orçamento</a>
                 <div class="flex items-center justify-center gap-2 bg-dark-blue/50 backdrop-blur-sm px-6 py-4 rounded-xl border border-white/20">
