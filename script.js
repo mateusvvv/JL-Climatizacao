@@ -133,8 +133,8 @@ const auth = firebase.auth();
 
 // Verifica estado da sessão em tempo real
 auth.onAuthStateChanged(user => {
-    const btnAdmin = document.getElementById('btn-voltar-admin');
-    if (user && btnAdmin) {
-        btnAdmin.classList.remove('hidden');
+    const btnsAdmin = document.querySelectorAll('.btn-voltar-admin');
+    if (user) {
+        btnsAdmin.forEach(btn => btn.classList.remove('hidden'));
     }
 });

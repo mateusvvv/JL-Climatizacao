@@ -33,17 +33,17 @@
                 <a href="#inicio" class="nav-link">Início</a>
                 <a href="#servicos" class="nav-link">Serviços</a>
                 <a href="#os" class="nav-link">Ordem de Serviço</a>
+                <!-- Botão Admin Desktop (aparece logado) -->
+                <a href="admin.html" class="btn-voltar-admin hidden nav-link flex items-center gap-1" title="Painel Admin">
+                    <i class="fas fa-user-shield text-lg"></i> Admin
+                    <span class="text-[10px] font-bold bg-green-600 text-white px-1.5 py-0.5 rounded-md uppercase leading-none">Logado</span>
+                </a>
             </div>
 
             <div class="flex items-center gap-2 md:gap-4">
                 <button id="theme-toggle" class="text-white hover:text-blue-400 transition-colors p-2" aria-label="Alternar modo escuro">
                     <i id="theme-icon" class="fas fa-moon text-lg"></i>
                 </button>
-                <!-- Botão de acesso rápido ao Admin (aparece quando logado) -->
-                <a id="btn-voltar-admin" href="admin.html" class="hidden text-white hover:text-blue-400 transition-colors p-2 flex items-center gap-1 font-bold text-xs uppercase" title="Painel Admin">
-                    <i class="fas fa-user-shield text-lg"></i> Admin
-                    <span class="text-[10px] font-bold bg-green-600 text-white px-1.5 py-0.5 rounded-md uppercase tracking-wider leading-none">Logado</span>
-                </a>
                 <!-- Mobile Menu Toggle -->
                 <button id="mobile-menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Abrir menu">
                     <i class="fas fa-bars text-xl"></i>
@@ -55,6 +55,11 @@
             <a href="#inicio" class="block nav-link text-lg">Início</a>
             <a href="#servicos" class="block nav-link text-lg">Serviços</a>
             <a href="#os" class="block nav-link text-lg">Ordem de Serviço</a>
+            <!-- Botão Admin Mobile -->
+            <a href="admin.html" class="btn-voltar-admin hidden block nav-link text-lg flex items-center gap-1">
+                <i class="fas fa-user-shield"></i> Admin
+                <span class="text-[10px] font-bold bg-green-600 text-white px-1.5 py-0.5 rounded-md uppercase leading-none">Logado</span>
+            </a>
         </div>
     </nav>
 
