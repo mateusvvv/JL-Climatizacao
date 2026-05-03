@@ -33,7 +33,7 @@
                 <a href="#inicio" class="nav-link">Início</a>
                 <a href="#servicos" class="nav-link">Serviços</a>
                 <a href="#os" class="nav-link">Ordem de Serviço</a>
-                <a href="admin.html" class="nav-link text-blue-400 hover:text-blue-300" title="Área Administrativa"><i class="fas fa-user-shield text-lg"></i></a>
+                <a href="admin.html" class="nav-link text-blue-400 hover:text-blue-300 flex items-center gap-2" title="Área Administrativa"><i class="fas fa-user-shield text-lg"></i> Admin</a>
             </div>
 
             <div class="flex items-center gap-2 md:gap-4">
@@ -42,11 +42,8 @@
                 </button>
                 <!-- Botão de acesso rápido ao Admin (aparece quando logado) -->
                 <a id="btn-voltar-admin" href="admin.html" class="hidden text-white hover:text-blue-400 transition-colors p-2 flex items-center gap-2" title="Painel Admin">
-                    <i class="fas fa-user-shield text-lg"></i>
+                    <i class="fas fa-user-shield text-lg"></i> <span>Admin</span>
                     <span class="text-[10px] font-bold bg-green-600 text-white px-1.5 py-0.5 rounded-md uppercase tracking-wider leading-none">Logado</span>
-                </a>
-                <a href="https://wa.me/558193833660" target="_blank" rel="noopener noreferrer" class="btn-whatsapp text-sm md:text-base">
-                    <i class="fab fa-whatsapp text-lg"></i> <span class="hidden xs:inline">Whatsapp</span>
                 </a>
                 <!-- Mobile Menu Toggle -->
                 <button id="mobile-menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Abrir menu">
@@ -59,7 +56,7 @@
             <a href="#inicio" class="block nav-link text-lg">Início</a>
             <a href="#servicos" class="block nav-link text-lg">Serviços</a>
             <a href="#os" class="block nav-link text-lg">Ordem de Serviço</a>
-            <a href="admin.html" class="block nav-link text-lg text-blue-400" title="Área Administrativa"><i class="fas fa-user-shield"></i></a>
+            <a href="admin.html" class="block nav-link text-lg text-blue-400 flex items-center gap-2" title="Área Administrativa"><i class="fas fa-user-shield"></i> Admin</a>
         </div>
     </nav>
 
@@ -154,6 +151,13 @@
             <p class="opacity-50 text-sm">© <span id="current-year"></span> JL Climatização - Atendendo Belo Jardim e Região</p>
         </div>
     </footer>
+
+    <!-- Botão de WhatsApp Flutuante (Discreto) -->
+    <div class="fixed bottom-6 right-6 z-[60]">
+        <a href="https://wa.me/558193833660" target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all flex items-center justify-center border-2 border-white/20 backdrop-blur-sm" title="Falar no WhatsApp">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </a>
+    </div>
 
     <script src="script.js" defer></script>
 </body>

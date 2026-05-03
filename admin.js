@@ -97,7 +97,7 @@ function calcularTotal() {
 
 btnAddMaterial.addEventListener('click', () => {
     const div = document.createElement('div');
-    div.className = 'material-row flex gap-2 items-center animate-fade-in';
+    div.className = 'material-row flex flex-wrap md:flex-nowrap gap-2 items-center bg-gray-50 p-3 rounded-xl border border-gray-200 animate-fade-in';
     div.innerHTML = `
         <input type="text" placeholder="Item" class="form-field !p-2 flex-grow mat-desc" required>
         <input type="number" placeholder="Qtd" class="form-field !p-2 w-16 mat-qtd" required min="1" value="1">
