@@ -33,7 +33,6 @@
                 <a href="#inicio" class="nav-link">Início</a>
                 <a href="#servicos" class="nav-link">Serviços</a>
                 <a href="#os" class="nav-link">Ordem de Serviço</a>
-                <a href="admin.html" class="nav-link text-blue-400 hover:text-blue-300 flex items-center gap-2" title="Área Administrativa"><i class="fas fa-user-shield text-lg"></i> Admin</a>
             </div>
 
             <div class="flex items-center gap-2 md:gap-4">
@@ -41,8 +40,8 @@
                     <i id="theme-icon" class="fas fa-moon text-lg"></i>
                 </button>
                 <!-- Botão de acesso rápido ao Admin (aparece quando logado) -->
-                <a id="btn-voltar-admin" href="admin.html" class="hidden text-white hover:text-blue-400 transition-colors p-2 flex items-center gap-2" title="Painel Admin">
-                    <i class="fas fa-user-shield text-lg"></i> <span>Admin</span>
+                <a id="btn-voltar-admin" href="admin.html" class="hidden text-white hover:text-blue-400 transition-colors p-2 flex items-center gap-1 font-bold text-xs uppercase" title="Painel Admin">
+                    <i class="fas fa-user-shield text-lg"></i> Admin
                     <span class="text-[10px] font-bold bg-green-600 text-white px-1.5 py-0.5 rounded-md uppercase tracking-wider leading-none">Logado</span>
                 </a>
                 <!-- Mobile Menu Toggle -->
@@ -56,7 +55,6 @@
             <a href="#inicio" class="block nav-link text-lg">Início</a>
             <a href="#servicos" class="block nav-link text-lg">Serviços</a>
             <a href="#os" class="block nav-link text-lg">Ordem de Serviço</a>
-            <a href="admin.html" class="block nav-link text-lg text-blue-400 flex items-center gap-2" title="Área Administrativa"><i class="fas fa-user-shield"></i> Admin</a>
         </div>
     </nav>
 
@@ -78,21 +76,21 @@
     <!-- Serviços -->
     <section id="servicos" class="py-20 container mx-auto px-6">
         <h2 class="text-3xl font-black text-center text-dark-blue mb-16 uppercase tracking-tighter italic dark:text-blue-400">Nossas Soluções</h2>
-        <div class="grid md:grid-cols-3 gap-10">
-            <div class="service-card">
-                <i class="fas fa-tools text-blue-600 text-4xl mb-4"></i>
-                <h3 class="text-xl font-bold mb-3">Instalação Profissional</h3>
-                <p class="text-gray-600 dark:text-slate-400">Instalação técnica de ar condicionado split e ACJ seguindo rigorosamente as normas dos fabricantes.</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-10">
+            <div class="service-card !p-4 md:!p-8 text-center">
+                <i class="fas fa-tools text-blue-600 text-2xl md:text-4xl mb-2"></i>
+                <h3 class="text-sm md:text-xl font-bold">Instalação</h3>
+                <p class="hidden md:block text-gray-600 dark:text-slate-400 text-xs mt-2">Técnica split e ACJ seguindo normas.</p>
             </div>
-            <div class="service-card">
-                <i class="fas fa-hand-sparkles text-blue-600 text-4xl mb-4"></i>
-                <h3 class="text-xl font-bold mb-3">Higienização Completa</h3>
-                <p class="text-gray-600 dark:text-slate-400">Limpeza profunda que elimina fungos e bactérias, garantindo a qualidade do ar que sua família respira.</p>
+            <div class="service-card !p-4 md:!p-8 text-center">
+                <i class="fas fa-wrench text-blue-600 text-2xl md:text-4xl mb-2"></i>
+                <h3 class="text-sm md:text-xl font-bold">Manutenção</h3>
+                <p class="hidden md:block text-gray-600 dark:text-slate-400 text-xs mt-2">Preventiva e corretiva com diagnóstico.</p>
             </div>
-            <div class="service-card">
-                <i class="fas fa-wrench text-blue-600 text-4xl mb-4"></i>
-                <h3 class="text-xl font-bold mb-3">Manutenção Corretiva</h3>
-                <p class="text-gray-600 dark:text-slate-400">Diagnóstico preciso e reparos em equipamentos que pararam de funcionar ou apresentam falhas.</p>
+            <div class="service-card !p-4 md:!p-8 text-center col-span-2 md:col-span-1">
+                <i class="fas fa-hand-sparkles text-blue-600 text-2xl md:text-4xl mb-2"></i>
+                <h3 class="text-sm md:text-xl font-bold">Higienização Completa</h3>
+                <p class="hidden md:block text-gray-600 dark:text-slate-400 text-xs mt-2">Limpeza profunda e saúde para sua família.</p>
             </div>
         </div>
     </section>

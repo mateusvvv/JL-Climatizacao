@@ -171,6 +171,13 @@ body {
         flex-direction: column;
         align-items: stretch !important;
     }
+
+    #corpo-historico {
+        scrollbar-width: none; /* Firefox */
+    }
+    #corpo-historico::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
 }
 
 @keyframes fadeIn {
