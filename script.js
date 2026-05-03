@@ -116,3 +116,25 @@ document.getElementById('osForm').addEventListener('submit', function(e) {
         btn.innerText = "Enviar Solicitação via WhatsApp";
     }, 2000);
 });
+
+// --- INTEGRAÇÃO FIREBASE (CONFIGURAÇÃO) ---
+const firebaseConfig = {
+    apiKey: "AIzaSyBuQu5IHt2CbAascfjdh-dfYptGU_MRxMA",
+    authDomain: "jlclimatizacao-6d43d.firebaseapp.com",
+    projectId: "jlclimatizacao-6d43d",
+    storageBucket: "jlclimatizacao-6d43d.firebasestorage.app",
+    messagingSenderId: "295085493454",
+    appId: "1:295085493454:web:05fade19d788866e5ad49f",
+    measurementId: "G-W1R8DQ8M1S"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+// Verifica estado da sessão em tempo real
+auth.onAuthStateChanged(user => {
+    const btnAdmin = document.getElementById('btn-voltar-admin');
+    if (user && btnAdmin) {
+        btnAdmin.classList.remove('hidden');
+    }
+});

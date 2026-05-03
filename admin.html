@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo | JL CLIMATIZAÇÃO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Login Section -->
+    <div id="login-container" class="min-h-screen flex items-center justify-center p-6">
+        <div class="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-md">
+            <div class="text-center mb-8">
+                <h1 class="text-2xl font-black text-dark-blue italic uppercase">JL CLIMATIZAÇÃO</h1>
+                <p class="text-gray-500">Acesso Restrito ao Técnico</p>
+            </div>
+            <form id="loginForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-bold uppercase mb-1">E-mail</label>
+                    <input type="email" id="email" required class="form-field" placeholder="leandro@exemplo.com">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold uppercase mb-1">Senha</label>
+                    <input type="password" id="password" required class="form-field" placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn-submit">Entrar no Painel</button>
+                <div class="text-center mt-4">
+                    <a href="index.html" class="text-sm text-gray-500 hover:underline">Voltar ao site</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Content (Hidden initially) -->
+    <div id="admin-content" class="hidden animate-fade-in">
+        <nav class="bg-dark-blue text-white py-4 shadow-lg">
+            <div class="container mx-auto px-6 flex justify-between items-center">
+                <div class="font-black italic uppercase">Painel Técnico</div>
+                <div class="flex gap-4">
+                    <a href="index.html" class="text-sm bg-blue-500 px-4 py-2 rounded-lg font-bold hover:bg-blue-600 transition-colors flex items-center gap-2">
+                        <i class="fas fa-home"></i> Voltar ao Site
+                    </a>
+                    <button id="btnLogout" class="text-sm bg-red-600 px-4 py-2 rounded-lg font-bold hover:bg-red-700 transition-colors">Sair</button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container mx-auto px-6 py-12 max-w-5xl space-y-12">
+            <!-- Gerador de O.S. -->
+            <section class="bg-white rounded-3xl p-8 shadow-xl border-t-8 border-blue-600">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-2xl font-black text-dark-blue uppercase italic">Gerar Nova O.S.</h2>
+                    <div class="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold">O.S. Nº: <span id="numero-os-display">1</span></div>
+                </div>
+
+                <form id="pdfForm" class="grid md:grid-cols-2 gap-6">
+                    <div class="md:col-span-2">
+                        <label class="block font-bold text-sm uppercase mb-2">Nome do Cliente</label>
+                        <input type="text" id="pdf_cliente" required class="form-field">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm uppercase mb-2">Tipo de Serviço</label>
+                        <select id="pdf_tipo" class="form-field font-semibold">
+                            <option value="Instalação 9.000 BTUs">Instalação 9.000 BTUs</option>
+                            <option value="Instalação 12.000 BTUs">Instalação 12.000 BTUs</option>
+                            <option value="Instalação 18.000 BTUs">Instalação 18.000 BTUs</option>
+                            <option value="Higienização">Higienização</option>
+                            <option value="Manutenção">Manutenção</option>
+                            <option value="Carga de Gás">Carga de Gás</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm uppercase mb-2">Data</label>
+                        <input type="date" id="pdf_data" required class="form-field">
+                    </div>
+                    <div class="md:col-span-2">
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="block font-bold text-sm uppercase">Materiais</label>
+                            <button type="button" id="btn-add-material" class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-md hover:bg-blue-200 font-bold">
+                                + Adicionar Item
+                            </button>
+                        </div>
+                        <div id="lista-materiais" class="space-y-3 mb-4"></div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block font-bold text-sm uppercase mb-2">Fotos (Opcional)</label>
+                        <input type="file" id="pdf_fotos" multiple accept="image/*" class="form-field text-sm">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm uppercase mb-2">Mão de Obra (R$)</label>
+                        <input type="number" step="0.01" id="pdf_mao_obra" required class="form-field" value="0.00">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm uppercase mb-2">Valor Total (R$)</label>
+                        <input type="number" step="0.01" id="pdf_total" required class="form-field bg-gray-50" readonly>
+                    </div>
+                    <button type="submit" class="md:col-span-2 btn-submit !bg-green-600 hover:!bg-green-700">
+                        <i class="fas fa-file-pdf mr-2"></i> Gerar e Salvar O.S. (PDF)
+                    </button>
+                </form>
+            </section>
+
+            <!-- Histórico -->
+            <section class="bg-white rounded-3xl p-8 shadow-xl">
+                <h2 class="text-2xl font-black text-dark-blue uppercase italic mb-6">Histórico Recente</h2>
+                <div class="mb-6">
+                    <input type="text" id="input-busca" placeholder="🔍 Pesquisar por nome do cliente..." class="form-field">
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm" id="tabela-historico">
+                        <thead class="bg-gray-100 uppercase text-xs font-bold">
+                            <tr>
+                                <th class="p-4">Nº</th>
+                                <th class="p-4">Data</th>
+                                <th class="p-4">Cliente</th>
+                                <th class="p-4">Serviço</th>
+                                <th class="p-4 text-right">Total</th>
+                                <th class="p-4 text-center">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpo-historico"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+
+    <script src="admin.js"></script>
+</body>
+</html>
