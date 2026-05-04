@@ -133,8 +133,10 @@ const auth = firebase.auth();
 
 // Verifica estado da sessão em tempo real
 auth.onAuthStateChanged(user => {
-    const btnsAdmin = document.querySelectorAll('.btn-voltar-admin');
+    const badges = document.querySelectorAll('.badge-logado');
     if (user) {
-        btnsAdmin.forEach(btn => btn.classList.remove('hidden'));
+        badges.forEach(badge => badge.classList.remove('hidden'));
+    } else {
+        badges.forEach(badge => badge.classList.add('hidden'));
     }
 });
